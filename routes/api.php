@@ -16,4 +16,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::resource('user', UserController::class);
     Route::resource('task', TaskController::class);
+
+    Route::get('task/filter/status/{status}', [TaskController::class, 'FilterByStatus']);
+    Route::get('task/filter/priority/{priority}', [TaskController::class, 'FilterByPriority']);
 });

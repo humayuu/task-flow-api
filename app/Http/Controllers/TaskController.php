@@ -138,4 +138,31 @@ class TaskController extends Controller
             'message' => 'Task Deleted SUccessfully',
         ], 200);
     }
+
+    /**
+     * For Filter by status
+     */
+    public function FilterByStatus($status)
+    {
+        $tasks = Task::where('status', $status)->get();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Successfully filtered tasks with status: ' . $status,
+            'data' => $tasks,
+        ]);
+    }
+
+    /**
+     * For Filter by priority
+     */
+    public function FilterByPriority($priority)
+    {
+        $tasks = Task::where('priority', $priority)->get();
+        return response()->json([
+            'status' => true,
+            'message' => 'Successfully filtered tasks with priority: ' . $priority,
+            'data' => $tasks,
+        ]);
+    }
 }
